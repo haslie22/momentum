@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="./css/owfont-regular.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>momentum</title>
+</head>
+<body>
+  <header class="header">
+    <div class="player">
+      <div class="player-controls">
+        <button class="play-prev player-icon"></button>
+        <button class="play player-icon"></button>
+        <button class="play-next player-icon"></button>
+      </div>
+      <div class="player-container">
+        <div class="player-info">
+          <span class="player-track"></span>
+          <div class="player-progress-timer">
+            <div id="timer"></div>
+            <span>&nbsp;/&nbsp;</span>
+            <div id="duration"></div>
+        </div>
+        <div class="player-progress">
+          <div class="player-progress-bar">
+            <div id="progress"></div>
+          </div>
+          </div>
+        </div>
+        <div class="player-volume-container">
+          <div class="player-volume-muteButton">
+            <img src="./assets/svg/volume-unmuted.svg" alt="Volume button" class="player-volume-icon">
+            <img src="./assets/svg/volume-muted.svg" alt="Volume button" class="player-muted-icon js-hide">
+          </div>
+          <input type="range" min="0" max="1" step="0.01" class="player-volume-bar">
+        </div>
+        <div class="play-list"></div>
+      </div>
+    </div>
+    <div class="weather">
+      <input type="text" class="city" placeholder="Enter city" value="Minsk"/>
+      <i class="weather-icon owf"></i>
+      <div class="weather-error"></div>
+      <div class="description-container">
+        <span class="temperature"></span>
+        <span class="weather-description"></span>
+      </div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name" placeholder="enter your name" />
+    </div>
+  </main>
+  <footer class="footer">
+    <button class="change-quote"></button>
+    <div>
+      <div class="quote"></div>
+      <div class="author"></div>
+    </div>
+    <div class="overlay-settings"></div>
+      <div class="settings">
+        <div class="settings-modal-container">
+          <div class="settings-modal">
+            <div class="settings-title">Settings</div>
+            <div class="settings-body">
+              <div class="settings-item">
+                <div class="settings-item-name settings-language">Language</div>
+                <div class="settings-item-options-container">
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="language" value="en" id="check-language-en">
+                    <span class="radio-text-en">En</span>
+                  </div>
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="language" value="ru" id="check-language-ru">
+                    <span class="radio-text-ru">Ru</span>
+                  </div>
+                </div>
+              </div>
+              <div class="settings-item">
+                <div class="settings-item-name settings-player">Player</div>
+                <div class="settings-item-options-container">
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="player" value="true" id="check-player-on">
+                    <span class="radio-text-on">On</span>
+                  </div>
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="player" value="false" id="check-player-off">
+                    <span class="radio-text-off">Off</span>
+                  </div>
+                </div>
+              </div>
+              <div class="settings-item">
+                <div class="settings-item-name settings-weather">Weather</div>
+                <div class="settings-item-options-container">
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="weather" value="true" id="check-weather-on">
+                    <span class="radio-text-on">On</span>
+                  </div>
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="weather" value="false" id="check-weather-off">
+                    <span class="radio-text-off">Off</span>
+                  </div>
+                </div>
+              </div>
+              <div class="settings-item">
+                <div class="settings-item-name settings-time">Time</div>
+                <div class="settings-item-options-container">
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="time" value="true" id="check-time-on">
+                    <span class="radio-text-on">On</span>
+                  </div>
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="time" value="false" id="check-time-off">
+                    <span class="radio-text-off">Off</span>
+                  </div>
+                </div>
+              </div>
+              <div class="settings-item">
+                <div class="settings-item-name settings-greeting">Greeting</div>
+                <div class="settings-item-options-container">
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="greeting" value="true" id="check-greeting-on">
+                    <span class="radio-text-on">On</span>
+                  </div>
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="greeting" value="false" id="check-greeting-off">
+                    <span class="radio-text-off">Off</span>
+                  </div>
+                </div>
+              </div>
+              <div class="settings-item">
+                <div class="settings-item-name settings-backgroundsource">Background source</div>
+                <div class="settings-item-options-container">
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="backgroundsource" value="github" id="check-background-source-github">
+                    <span class="radio-text">GitHub</span>
+                  </div>
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="backgroundsource" value="unsplash" id="check-background-source-unsplash">
+                    <span class="radio-text">Unsplash</span>
+                  </div>
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="backgroundsource" value="flickr" id="check-background-source-flickr">
+                    <span class="radio-text">Flickr</span>
+                  </div>
+                </div>
+              </div>
+              <div class="settings-item input-item">
+                <div class="settings-item-name settings-tag">Tag</div>
+                <div class="settings-item-options-container">
+                  <div class="settings-item-options">
+                    <input class="custom-tag" name="custom-tag" maxlength="30" placeholder="Add your tag">
+                  </div>
+                </div>
+              </div>
+              <div class="settings-item">
+                <div class="settings-item-name settings-quote">Quote</div>
+                <div class="settings-item-options-container">
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="quote" value="true" id="check-quote-on">
+                    <span class="radio-text-on">On</span>
+                  </div>
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="quote" value="false" id="check-quote-off">
+                    <span class="radio-text-off">Off</span>
+                  </div>
+                </div>
+              </div>
+              <div class="settings-item">
+                <div class="settings-item-name settings-todo">To-do</div>
+                <div class="settings-item-options-container">
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="todo" value="true" id="check-todo-on">
+                    <span class="radio-text-on">On</span>
+                  </div>
+                  <div class="settings-item-options">
+                    <input type="radio" class="radio" name="todo" value="false" id="check-todo-off">
+                    <span class="radio-text-off">Off</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlay">
+      <div class="todo">
+        <div class="todo-modal-container">
+          <div class="todo-modal">
+            <span class="todo-started-text"></span>
+            <span class="todo-sub-text"><b><br>Add your tasks. Organize your <br>life. Achieve more every day.<br><br><br></b> Write your first to-do and press <u><b>Enter</b></u> <br>to get started</span>
+            <ul class="todo-list"></ul>
+            <span class="todo-completed-link js-hide">Your progress:</span>
+            <ul class="completed-list"></ul>
+          </div>
+          <input class="todo-input" type="text" maxlength="24" placeholder='Write your to-do, e.g. "water plants"'>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="options">
+    <div class="options-left">
+      <div class="settings-icon-container">
+        <img src="./assets/svg/settings.svg" alt="Settings icon" class="settings-icon">
+      </div>
+      <div class="screensize-icon-container">
+        <img src="./assets/svg/screen-upsize.svg" alt="Open app in full screen" class="screensize-icon screensize-up-icon js-hide">
+        <img src="./assets/svg/screen-downsize.svg" alt="Open app in browser-sized screen" class="screensize-icon screensize-down-icon">
+      </div>
+    </div>
+    <div class="copyrights">
+      <span class="year">2022</span>
+      <a href="https://github.com/haslie22" target="_blank" class="copyrights-github">
+        <img src="./assets/svg/logo-github.svg" alt="github link" class="copyrights-github-img">
+      </a>
+      <a href="https://rs.school/js/" target="_blank" class="copyrights-rss">
+        <img src="./assets/svg/logo-rss.svg" alt="rss link" class="copyrights-rss-img">
+      </a>
+    </div>
+    <div class="todo-icon-container">
+      <img src="./assets/svg/todo.svg" alt="Todo icon" class="todo-icon">
+    </div>
+  </div>
+  <script src="./js/index.js" type="module"></script>
+</body>
+</html>
